@@ -9,4 +9,5 @@ public class SpringBootSecurityX509ServerAppApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootSecurityX509ServerAppApplication.class, args);
 	}
+
 }

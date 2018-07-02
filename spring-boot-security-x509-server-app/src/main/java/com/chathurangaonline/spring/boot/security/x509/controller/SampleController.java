@@ -1,9 +1,11 @@
 package com.chathurangaonline.spring.boot.security.x509.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -12,6 +14,7 @@ public class SampleController
     @RequestMapping(value = "/logged_info", method = RequestMethod.GET)
     public String helloController()
     {
+        System.out.println("Incoming request to server app");
         String loggedUser;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -22,4 +25,6 @@ public class SampleController
         }
         return "X.509 authentication done! REST client has been identified as ["+loggedUser+"] ";
     }
+
+
 }
